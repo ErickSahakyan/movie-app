@@ -6,6 +6,7 @@ import MovieListHeading from './components/MovieListHeading';
 import SearchBox from './components/SearchBox';
 import AddFavorite from './components/AddFavorite';
 import RemoveFavorite from './components/RemoveFavorite';
+import useFetch from './hooks/useFetch';
 
 
 
@@ -14,10 +15,16 @@ function App() {
 	const [searchValue, setSearchValue] = useState('');
 	const [favorites, setFavorites] = useState([]);
 
+
+
+
 	const getMovieRequest = async (searchValue) => {
 		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
 
-		const response = await fetch(url);
+		const response = await fetch(url, {
+			method: "GET",
+			mode: 'cors',
+		});
 		const responseJson = await response.json();
 
 		if (responseJson.Search) {

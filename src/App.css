@@ -8,6 +8,7 @@ body{
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
+	max-width: 100vh;
 }
 
 .movies{
@@ -42,7 +43,6 @@ body{
 .head__text{
 	font-size: 46px;
 	margin: 25px;
-	margin-right: 1050px;
 }
 
 img{

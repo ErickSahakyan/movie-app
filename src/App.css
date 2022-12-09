@@ -6,9 +6,8 @@ body{
 .header{
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: center;
-	max-width: 100vh;
 }
 
 .movies{

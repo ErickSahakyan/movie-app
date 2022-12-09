@@ -18,6 +18,7 @@ function App() {
 		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=7248391e`;
 
 		const response = await fetch(url, {
+			withCredentials: true,
 			mode: 'cors',
 		});
 		const responseJson = await response.json();

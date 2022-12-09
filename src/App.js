@@ -20,7 +20,6 @@ function App() {
 			headers: {
 				"Content-Type": "text/plain",
 			},
-			mode: 'cors',
 		}).then((res) => res.json());
 
 		if (response.Search) {

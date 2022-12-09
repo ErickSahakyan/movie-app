@@ -13,18 +13,23 @@ function App() {
 	const [favorites, setFavorites] = useState([]);
 
 	async function getMovieRequest(searchValue) {
-		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
+		try {
+			const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`;
 
-		const response = await fetch(url, {
-			method: 'GET',
-			headers: {
-				"Content-Type": "text/plain",
-			},
-		}).then((res) => res.json());
-
-		if (response.Search) {
-			setMovies(response.Search);
+			const response = await fetch(url, {
+				method: 'GET',
+				headers: {
+					"Content-Type": "text/plain",
+				},
+			}).then((res) => res.json());
+	
+			if (response.Search) {
+				setMovies(response.Search);
+			}
+		} catch (error) {
+			console.log(error);
 		}
+	
 	}
 
 	// const getMovieRequest = async (searchValue) => {

@@ -15,7 +15,7 @@ function App() {
 
 
 	const getMovieRequest = searchValue => {
-		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=7248391e`;
+		const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=7248391e`;
 		const xhr = new XMLHttpRequest();
 		xhr.open('GET', url);
 		xhr.responseType = 'json';

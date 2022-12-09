@@ -14,20 +14,30 @@ function App() {
 	const [favorites, setFavorites] = useState([]);
 
 
-	const getMovieRequest = async (searchValue) => {
+	const getMovieRequest = searchValue => {
 		const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=7248391e`;
-
-		const response = await fetch(url, {
-			withCredentials: true,
-			mode: 'cors',
-		});
-		const responseJson = await response.json();
-
-		if (responseJson.Search) {
-			setMovies(responseJson.Search);
-		}
-
+		const xhr = new XMLHttpRequest();
+		xhr.open('GET', url);
+		xhr.responseType = 'json';
+		xhr.onload = () => {
+			if(xhr.response.Search){
+				setMovies(xhr.response.Search);
+			}
+		};
+		xhr.send();
 	};
+
+
+	// const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=7248391e`;
+
+	// 	const response = await fetch(url, {
+	// 		mode: 'cors',
+	// 	});
+	// 	const responseJson = await response.json();
+
+	// 	if (responseJson.Search) {
+	// 		setMovies(responseJson.Search);
+	// 	}
 
 	useEffect(() => {
 		getMovieRequest(searchValue);
